@@ -26,9 +26,6 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 Message(STATUS "Triangle Build configuration: " ${CMAKE_BUILD_TYPE})
 
-set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/${TRIANGLE_INSTALL_DIR} CACHE PATH "Install path prefix, prepended onto install directories." FORCE)
-Message(STATUS "Triangle Library will be installed in: " ${CMAKE_INSTALL_PREFIX})
-
 # Add dependencies
 ###########################################################################################
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
