@@ -220,8 +220,8 @@
 /*   remove the Unix-specific timing code.                                   */
 
 #define NO_TIMER
-
 #define INT_PTR unsigned long long
+#define ANSI_DECLARATIONS
 
 /* To insert lots of self-checks for internal errors, define the SELF_CHECK  */
 /*   symbol.  This will slow down the program significantly.  It is best to  */
@@ -3776,20 +3776,20 @@ struct osub *s;
   struct otri printtri;
   vertex printvertex;
 
-  printf("subsegment x%lx with orientation %d and mark %d:\n",
-         (unsigned long) s->ss, s->ssorient, mark(*s));
+  printf("subsegment x%llx with orientation %d and mark %d:\n",
+         (INT_PTR) s->ss, s->ssorient, mark(*s));
   sdecode(s->ss[0], printsh);
   if (printsh.ss == m->dummysub) {
     printf("    [0] = No subsegment\n");
   } else {
-    printf("    [0] = x%lx  %d\n", (unsigned long) printsh.ss,
+    printf("    [0] = x%llx  %d\n", (INT_PTR) printsh.ss,
            printsh.ssorient);
   }
   sdecode(s->ss[1], printsh);
   if (printsh.ss == m->dummysub) {
     printf("    [1] = No subsegment\n");
   } else {
-    printf("    [1] = x%lx  %d\n", (unsigned long) printsh.ss,
+    printf("    [1] = x%llx  %d\n", (INT_PTR) printsh.ss,
            printsh.ssorient);
   }
 
@@ -3797,29 +3797,29 @@ struct osub *s;
   if (printvertex == (vertex) NULL)
     printf("    Origin[%d] = NULL\n", 2 + s->ssorient);
   else
-    printf("    Origin[%d] = x%lx  (%.12g, %.12g)\n",
-           2 + s->ssorient, (unsigned long) printvertex,
+    printf("    Origin[%d] = x%llx  (%.12g, %.12g)\n",
+           2 + s->ssorient, (INT_PTR) printvertex,
            printvertex[0], printvertex[1]);
   sdest(*s, printvertex);
   if (printvertex == (vertex) NULL)
     printf("    Dest  [%d] = NULL\n", 3 - s->ssorient);
   else
-    printf("    Dest  [%d] = x%lx  (%.12g, %.12g)\n",
-           3 - s->ssorient, (unsigned long) printvertex,
+    printf("    Dest  [%d] = x%llx  (%.12g, %.12g)\n",
+           3 - s->ssorient, (INT_PTR) printvertex,
            printvertex[0], printvertex[1]);
 
   decode(s->ss[6], printtri);
   if (printtri.tri == m->dummytri) {
     printf("    [6] = Outer space\n");
   } else {
-    printf("    [6] = x%lx  %d\n", (unsigned long) printtri.tri,
+    printf("    [6] = x%llx  %d\n", (INT_PTR) printtri.tri,
            printtri.orient);
   }
   decode(s->ss[7], printtri);
   if (printtri.tri == m->dummytri) {
     printf("    [7] = Outer space\n");
   } else {
-    printf("    [7] = x%lx  %d\n", (unsigned long) printtri.tri,
+    printf("    [7] = x%llx  %d\n", (INT_PTR) printtri.tri,
            printtri.orient);
   }
 
@@ -3827,15 +3827,15 @@ struct osub *s;
   if (printvertex == (vertex) NULL)
     printf("    Segment origin[%d] = NULL\n", 4 + s->ssorient);
   else
-    printf("    Segment origin[%d] = x%lx  (%.12g, %.12g)\n",
-           4 + s->ssorient, (unsigned long) printvertex,
+    printf("    Segment origin[%d] = x%llx  (%.12g, %.12g)\n",
+           4 + s->ssorient, (INT_PTR) printvertex,
            printvertex[0], printvertex[1]);
   segdest(*s, printvertex);
   if (printvertex == (vertex) NULL)
     printf("    Segment dest  [%d] = NULL\n", 5 - s->ssorient);
   else
-    printf("    Segment dest  [%d] = x%lx  (%.12g, %.12g)\n",
-           5 - s->ssorient, (unsigned long) printvertex,
+    printf("    Segment dest  [%d] = x%llx  (%.12g, %.12g)\n",
+           5 - s->ssorient, (INT_PTR) printvertex,
            printvertex[0], printvertex[1]);
 }
 
