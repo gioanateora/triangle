@@ -221,7 +221,6 @@
 
 #define NO_TIMER
 #define INT_PTR unsigned long long
-#define ANSI_DECLARATIONS
 
 /* To insert lots of self-checks for internal errors, define the SELF_CHECK  */
 /*   symbol.  This will slow down the program significantly.  It is best to  */
