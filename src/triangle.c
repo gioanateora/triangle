@@ -220,7 +220,12 @@
 /*   remove the Unix-specific timing code.                                   */
 
 #define NO_TIMER
+
+#if (WIN32)
 #define INT_PTR unsigned long long
+#else
+#define INT_PTR unsigned long
+#endif
 
 /* To insert lots of self-checks for internal errors, define the SELF_CHECK  */
 /*   symbol.  This will slow down the program significantly.  It is best to  */
